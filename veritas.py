@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from agents import Agent, Runner, FileSearchTool, trace
 import streamlit as st
+from tree_sitter import ThreadsManager
 
 def main():
     st.set_page_config(page_title="VERITAS Chat", page_icon="🔍", layout="centered")
@@ -120,6 +121,7 @@ class OpenAIHandler:
     """
 
     def __init__(self):
+        self.threads_manager = ThreadsManager()
         self._initialize_agents()
 
     def _initialize_agents(self):
