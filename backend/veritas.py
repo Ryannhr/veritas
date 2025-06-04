@@ -120,7 +120,6 @@ class OpenAIHandler:
     """
 
     def __init__(self):
-        self.threads_manager = ThreadsManager()
         self._initialize_agents()
 
     def _initialize_agents(self):
