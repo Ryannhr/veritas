@@ -1,12 +1,7 @@
 import os
 import asyncio
 import uuid
-try:
-    from loguru import logger
-except ImportError:
-    import logging
-    logger = logging.getLogger(__name__)
-    logger.warning("loguru não encontrado. Usando logging padrão.")
+from loguru import logger
 from typing import Dict, List, Any
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -233,7 +228,6 @@ def main():
     st.markdown(custom_css, unsafe_allow_html=True)
 
     # Adiar o st.write até depois de st.set_page_config
-    st.write(f"DEBUG: API Key carregada com sucesso: {api_key[:10]}...")  # Remova antes do deploy
     st.title("🌿 VERITAS Chat")
     st.markdown("**Descubra seu propósito com inteligência espiritual guiada.**")
 
